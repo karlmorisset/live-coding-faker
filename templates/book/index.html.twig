@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+    <h1>Tous les livres</h1>
+    {% for book in books %}
+        <div>
+            <img class="cover" src="{{book.cover}}" alt="">
+            <h2>{{book.title}}</h2>
+            <div class="author">Un livre de <a href="{{path('author_show', {id: book.author.id})}}">{{book.author.fullname}}</a></div>
+            <div class="pages">{{book.pages}} pages // ISBN : {{book.isbn}}</div>
+        </div>
+    {% endfor  %}
+
+{% endblock %}
